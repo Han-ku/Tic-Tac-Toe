@@ -1,38 +1,212 @@
-.App {
-  text-align: center;
+* {
+    padding: 0;
+    margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    padding-inline: 20%;
+    padding-top: 1%;
+    margin-bottom: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.status,
+.p_history {
+    padding-bottom: .5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.square {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.board-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    margin-block: .5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.game {
+    display: flex;
+    border: 2px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: none;
+    margin: 0 auto; 
+    padding-top: 1rem;
+    position: relative; 
+    padding-bottom: 2rem;
+}
+
+.game-board,
+.game-info {
+    width: 50%; 
+    text-align: center; 
+}
+
+.game-info {
+    height: 100%;
+}
+
+.game-info ol {
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.game-info ol li:first-child button {
+    background-color: pink;
+    opacity: 1;
+    padding: 1% 4%;
+    margin-top: .5rem;
+    border: 2px solid palevioletred;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.game-info ol li:first-child button:hover {
+    scale: 1.05;
+    text-decoration: none;
+}
+
+.game-info ol li button {
+    background: none;
+    border: none;
+    opacity: .7;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.game-info ol li button:hover {
+   text-decoration: underline;
+   opacity: 1;
+}
+
+#history_more {
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    color: palevioletred;
+    transition: color .3s ease;
+}
+
+#history_more:hover {
+    color: rgb(214, 41, 99);
+}
+
+
+.game::before {
+    content: '';
+    position: absolute;
+    left: 50%; 
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: black; 
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+#settings-1,
+#settings-2 {
+    display: flex;
+    flex-direction: column; 
+    gap: .7rem;
+
+}
+
+#settings-1 {
+    justify-content: center;
+    align-items: center;
+}
+
+
+#settings-2 {
+    margin-top: 2rem;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#settings-1 #btn_random {
+    width: 40%;
+    margin-top: .5rem;
+    background-color:#00aaff85;
+    padding: 1% 2%;
+    margin-top: .5rem;
+    border: 2px solid #00aaff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#settings-1 #btn_random:hover {
+    scale: 1.05;
+}
+
+.sign-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px;
+}
+
+.sign-button {
+    font-size: 1rem;
+    padding: .2rem;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.sign-button.active {
+    background-color: #00aaff;
+    color: white;
+}
+
+.sign-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+
+@media (min-width: 768px) {
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
+    .wrapper {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center; 
+        min-height: 100vh; 
+    }
+
+    .game {
+        margin: 0;
+        width: 57%;
+        border: 2px solid black;
+        border-radius: 10px;
+    }
+
+    .settings {
+        width: 30%;
+        margin-bottom: 0;
+    }
+
+    .square {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
 }
